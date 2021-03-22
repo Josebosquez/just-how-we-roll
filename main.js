@@ -33,45 +33,33 @@ const sortByNumber = function(arr) {
 const D6Img = document.getElementById("d6-roll");
   D6Img.src = "images/start/d6.png"
 
-const DD6Img1 = document.getElementById("double-d6-roll-1");
-  DD6Img1.src = "images/start/d6.png"
-
-const DD6Img2 = document.getElementById("double-d6-roll-2");
-  DD6Img2.src = "images/start/d6.png"
-
-const D12Img = document.getElementById("d12-roll");
-  D12Img.src = "images/start/d12.jpeg"
-
-const D20Img = document.getElementById("d20-roll");
-  D20Img.src = "images/start/d20.jpg"
-
 /*******************
  * EVENT LISTENERS *
  *******************/
-const clickD6 = document.querySelector("#d6-roll");
+const clickD6 = document.getElementById("d6-roll");
 
-function rollingtheD6 (){
-
-}
-
-clickD6.addEventListener('click', somefunction);
-
-
-const clickDD6 = document.querySelector("#double img")
-clickDD6.addEventListener('click', somefunction);
-
-
-const clickD12 = document.querySelector("#d12-roll")
-clickD12.addEventListener('click', somefunction);
-
-
-const clickD20 = document.querySelector("#d20-roll")
-clickD20.addEventListener('click', somefunction);
+clickD6.addEventListener("click", function (){
+  const rolledNumber = getRandomNumber(6);
+  sixes.push(rolledNumber);
+  console.log(sixes);
+  D6Img.src = `images/d6/${rolledNumber}.png`
+});
 
 
 /******************
  * RESET FUNCTION *
  ******************/
+
+
+const resetAll = document.getElementById("reset-button");
+resetAll.addEventListener("click", function(){
+  console.log("Clicked it");
+  sixes.splice(0, sixes.length);
+  console.log(sixes)
+  D6Img.src = "images/start/d6.png"
+
+})
+
 
 
 
@@ -84,4 +72,12 @@ clickD20.addEventListener('click', somefunction);
 /****************
  * MATH SECTION *
  ****************/
+
+
+const getMean = function (diceRoll) {
+let sum = 0;
+for (num of diceRolls){
+  sum+=num;
+} return (sum /diceRolls.length)
+}
 
