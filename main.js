@@ -41,8 +41,9 @@ const clickD6 = document.getElementById("d6-roll");
 clickD6.addEventListener("click", function (){
   const rolledNumber = getRandomNumber(6);
   sixes.push(rolledNumber);
-  console.log(sixes);
+  console.log("d6:", sortByNumber(sixes))
   D6Img.src = `images/d6/${rolledNumber}.png`
+  document.getElementById("d6-rolls-mean").innerText = getMean(sixes)
 });
 
 
@@ -74,10 +75,11 @@ resetAll.addEventListener("click", function(){
  ****************/
 
 
-const getMean = function (diceRoll) {
+const getMean = function (diceRolls) {
 let sum = 0;
 for (num of diceRolls){
   sum+=num;
-} return (sum /diceRolls.length)
+} let average = sum/diceRolls.length
+  return average.toFixed(2)
 }
 
